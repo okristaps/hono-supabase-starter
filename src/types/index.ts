@@ -1,15 +1,11 @@
 import type { Context as HonoContext } from "hono";
-import SupabaseService from "@services/supabase.client.js";
 
-export interface Env {
+export type Env = {
   SUPABASE_URL: string;
   SUPABASE_KEY: string;
-}
-
-interface Clients {
-  supabase: SupabaseService;
-}
+  SUPABASE_SERVICE_KEY: string;
+};
 
 export interface AppContext extends HonoContext {
-  env: { clients: Clients };
+  env: Env;
 }

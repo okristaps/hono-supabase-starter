@@ -2,22 +2,24 @@
   "name": "servisometrs-node",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js"
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify"
   },
   "dependencies": {
-    "@hono/node-server": "^1.15.0",
     "@hono/swagger-ui": "^0.5.2",
     "@hono/zod-openapi": "^0.19.9",
     "@supabase/supabase-js": "^2.50.3",
     "hono": "^4.8.4",
+    "reflect-metadata": "^0.2.2",
+    "typedi": "^0.10.0",
     "zod": "^3.25.74"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250705.0",
     "@types/node": "^20.11.17",
     "supabase": "^2.30.4",
     "tsx": "^4.7.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "wrangler": "^4.23.0"
   }
 }

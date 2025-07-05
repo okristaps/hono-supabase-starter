@@ -1,34 +1,17 @@
-import { serve } from "@hono/node-server";
+import "reflect-metadata";
+import { Container } from "typedi";
 import app from "./server";
-import SupabaseClient from "./clients/supabase.client";
-
+import { SupabaseClientToken } from "./clients/supabase.client";
+import { createClient } from "@supabase/supabase-js";
 import type { Env } from "@types";
 import type { ExecutionContext } from "hono";
 
-serve(
-  {
-    fetch: app.fetch,
-  },
-  (info) => {
-    console.log(`Server is running on http://localhost:${info.port}`);
-  }
-);
-
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext) {
-    const supabaseClient = new SupabaseClient({
-      SUPABASE_URL: env.SUPABASE_URL,
-      SUPABASE_KEY: env.SUPABASE_KEY,
-    });
+    const supabaseClient = createClient(env.SUPABASE_URL, env.SUPABASE_SERVICE_KEY);
+    Container.set(SupabaseClientToken, supabaseClient);
 
-    const envWithServices = {
-      ...env,
-      clients: {
-        supabase: supabaseClient,
-      },
-    };
-
-    return app.fetch(request, envWithServices, ctx);
+    return app.fetch(request, env, ctx);
   },
 
   // async scheduled(controller: ScheduledController, env: Env, ctx: ExecutionContext) {

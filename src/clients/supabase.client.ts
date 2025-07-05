@@ -1,10 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
-import type { Env } from "../types/index.js";
+import { Token } from "typedi";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
-export default class SupabaseClient {
-  private client;
-
-  constructor(env: Env) {
-    this.client = createClient(env.SUPABASE_URL, env.SUPABASE_KEY);
-  }
-}
+export const SupabaseClientToken = new Token<SupabaseClient>("SupabaseClient");

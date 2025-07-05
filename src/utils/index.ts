@@ -1,6 +1,6 @@
-import registerRoutes from "./registerRoutes.js";
-import { ValidateRequestBody } from "./validateBody.js";
-import { createBodyValidatedRoute } from "./routes/createRoute.js";
-import { createQueryValidatedRoute } from "./routes/createRouteGet.js";
+import registerRoutes from "./registerRoutes";
+import { ValidateRequestBody } from "./validateBody";
+import { createBodyValidatedRoute } from "./routes/createRoute";
+import { createQueryValidatedRoute } from "./routes/createRouteGet";
 
 export { registerRoutes, ValidateRequestBody, createBodyValidatedRoute, createQueryValidatedRoute };

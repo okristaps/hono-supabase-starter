@@ -1,3 +1,4 @@
-import getUserRoute from "./hello/hello.route";
+import helloRoute from "./hello/hello.route";
+import testRoute from "./test/test.route";
 
-export const routes = [getUserRoute];
+export const routes = [helloRoute, testRoute];
