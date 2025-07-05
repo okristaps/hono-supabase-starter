@@ -1,4 +1,3 @@
-import { z } from "zod";
 import { createQueryValidatedRoute } from "@utils/routes/createRouteGet";
 import { Container } from "typedi";
 import { TestServiceToken } from "../../services/test.service";

@@ -1,4 +1,4 @@
-# Servisometrs Node
+# Hono Supabase Starter
 
 A backend service built with [Hono](https://hono.dev/) and designed to run on the [Cloudflare Workers](https://workers.cloudflare.com/) platform. It uses TypeScript, Supabase for the database, and `typedi` for dependency injection.
 
